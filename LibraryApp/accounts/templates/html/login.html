@@ -14,10 +14,10 @@
     <form method="POST">
         {% csrf_token %}
         <label>Email:</label>
-        <input type="text" name="username" required>
+        <input type="email" name="email" placeholder='example@cmrec.ac.in' required>
         <br>
         <label>Password:</label>
-        <input type="password" name="password" required>
+        <input type="password" name="password" placeholder='Password' required>
         <br>
         <button type="submit">Login</button>
     </form>

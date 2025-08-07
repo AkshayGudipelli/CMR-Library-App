@@ -2,7 +2,7 @@
 
 {% block body %}
 <body>
-    <h2>Register</h2>
+    <h2>Sign up</h2>
 
     {% if messages %}
         {% for message in messages %}
@@ -52,7 +52,7 @@
         </p>
 
         <p>
-            {{ form.password2.label_tag }}<br>
+            Re-Type Password:<br>
             {{ form.password2 }}<br>
             {{ form.password2.errors }}
         </p>
