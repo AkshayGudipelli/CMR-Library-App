@@ -76,12 +76,21 @@
 
     <form method="POST">
         {% csrf_token %}
+<<<<<<< HEAD
         <div class="input-group">
             <input type="text" name="username" placeholder="Email Address" required>
         </div>
         <div class="input-group">
             <input type="password" id="password" name="password" placeholder="Password" required>
         </div>
+=======
+        <label>Email:</label>
+        <input type="email" name="email" placeholder='example@cmrec.ac.in' required>
+        <br>
+        <label>Password:</label>
+        <input type="password" name="password" placeholder='Password' required>
+        <br>
+>>>>>>> 225c81f1bb0a75a6a198dac292d7f7b2cbd83ae1
         <button type="submit">Login</button>
     </form>
 

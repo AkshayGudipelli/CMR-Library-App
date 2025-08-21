@@ -18,6 +18,7 @@
                 overflow: hidden;
             }
 
+<<<<<<< HEAD
             .border-wrapper {
                 background: url("{% static 'books3.jpg' %}") no-repeat center center;
                 background-size: cover;
@@ -27,6 +28,11 @@
                 justify-content: center;
                 align-items: center;
             }
+=======
+{% block body %}
+<body>
+    <h2>Sign up</h2>
+>>>>>>> 225c81f1bb0a75a6a198dac292d7f7b2cbd83ae1
 
             .container {
                 background-color: white;
@@ -91,10 +97,18 @@
                 <img src="{% static 'cmrlogo.png' %}" alt="CMR Logo" class="logo">
                 <h2>Welcome to LibraryLink</h2>
 
+<<<<<<< HEAD
                 <form method="POST">
                     {% csrf_token %}
                     <!-- If you are using Django forms -->
                     {# {{ form.as_p }} #}
+=======
+        <p>
+            Re-Type Password:<br>
+            {{ form.password2 }}<br>
+            {{ form.password2.errors }}
+        </p>
+>>>>>>> 225c81f1bb0a75a6a198dac292d7f7b2cbd83ae1
 
                     <!-- Manual fields -->
                     <label for="fname">First Name</label>
