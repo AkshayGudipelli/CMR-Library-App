@@ -1,66 +1,120 @@
-{% extends "html/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LibraryLink - Register</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f9f9f9;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+            }
 
-{% block body %}
-<body>
-    <h2>Register</h2>
+            .border-wrapper {
+                background: url("{% static 'books3.jpg' %}") no-repeat center center;
+                background-size: cover;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
 
-    {% if messages %}
-        {% for message in messages %}
-            <p style="color: green;">{{ message }}</p>
-        {% endfor %}
-    {% endif %}
+            .container {
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                width: 500px;
+                box-sizing: border-box;
+                text-align: center;
+            }
 
-    {% if form.non_field_errors %}
-        <ul style="color: red;">
-            {% for error in form.non_field_errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+            .logo {
+                max-width: 100px;
+                margin-bottom: 4px;
+            }
 
-    <form method="POST">
-        {% csrf_token %}
-        
-        <p>
-            {{ form.first_name.label_tag }}<br>
-            {{ form.first_name }}<br>
-            {{ form.first_name.errors }}
-        </p>
+            h2 {
+                margin-top: 4px;
+                margin-bottom: 15px;
+                color: #333;
+                font-size: 20px;
+            }
 
-        <p>
-            {{ form.last_name.label_tag }}<br>
-            {{ form.last_name }}<br>
-            {{ form.last_name.errors }}
-        </p>
+            label {
+                display: block;
+                margin-bottom: 3px;
+                font-weight: bold;
+                color: black;
+                text-align: left;
+                font-size: 14px;
+            }
 
-        <p>
-            {{ form.username.label_tag }}<br>
-            {{ form.username }}<br>
-            {{ form.username.errors }}
-        </p>
+            input {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 20px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                box-sizing: border-box;
+            }
 
-        <p>
-            {{ form.email.label_tag }}<br>
-            {{ form.email }}<br>
-            {{ form.email.errors }}
-        </p>
+            button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                background-color: #4CAF50;
+                color: white;
+                font-size: 15px;
+                cursor: pointer;
+            }
 
-        <p>
-            {{ form.password1.label_tag }}<br>
-            {{ form.password1 }}<br>
-            {{ form.password1.errors }}
-        </p>
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="border-wrapper">
+            <div class="container">
+                <img src="{% static 'cmrlogo.png' %}" alt="CMR Logo" class="logo">
+                <h2>Welcome to LibraryLink</h2>
 
-        <p>
-            {{ form.password2.label_tag }}<br>
-            {{ form.password2 }}<br>
-            {{ form.password2.errors }}
-        </p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <!-- If you are using Django forms -->
+                    {# {{ form.as_p }} #}
 
-        <button type="submit">Register</button>
-    </form>
+                    <!-- Manual fields -->
+                    <label for="fname">First Name</label>
+                    <input id="fname" name="fname" type="text" placeholder="Enter your first name" required>
 
-    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
-</body>
+                    <label for="lname">Last Name</label>
+                    <input id="lname" name="lname" type="text" placeholder="Enter your last name" required>
 
-{% endblock %}
+                    <label for="email">College Mail ID</label>
+                    <input id="email" name="email" type="email" placeholder="Enter your email" required>
+
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" placeholder="Enter your password" required>
+
+                    <label for="confirm_password">Confirm Password</label>
+                    <input id="confirm_password" name="confirm_password" type="password" placeholder="Confirm your password" required>
+
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
