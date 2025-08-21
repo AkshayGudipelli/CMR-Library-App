@@ -1,29 +1,106 @@
 {% extends "html/base.html" %}
 
 {% block body %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: url('/media/images/ChatGPT Image Aug 21, 2025, 07_28_37 PM.png') no-repeat center center;
+        background-size: cover;      /* Makes it stretch and cover screen */
+        background-attachment: fixed; /* Keeps background fixed when scrolling */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
 
-<body>
-    <h2>Login to Your Account</h2>
+    .card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 30px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    .card h2 {
+        margin-bottom: 20px;
+    }
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+    button {
+        background-color: #001f54;
+        color: white;
+        padding: 12px;
+        width: 100%;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    button:hover {
+        background-color: #00337f;
+    }
+    p {
+        margin-top: 15px;
+    }
+    .toggle-password {
+        position: absolute;
+        right: 15px;
+        top: 38%;
+        cursor: pointer;
+    }
+    .input-group {
+        position: relative;
+    }
+    .logo {
+        width:50px;
+    }
+</style>
+
+<div class="card">
+    <img  class="logo" src="/media/images/cmr-logo.png">
+    <h2>Welcome to LibraryLink</h2>
 
     {% if messages %}
         {% for message in messages %}
-            <p>{{ message }}</p>
+            <p style="color:red;">{{ message }}</p>
         {% endfor %}
     {% endif %}
 
     <form method="POST">
         {% csrf_token %}
+<<<<<<< HEAD
+        <div class="input-group">
+            <input type="text" name="username" placeholder="Email Address" required>
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+=======
         <label>Email:</label>
         <input type="email" name="email" placeholder='example@cmrec.ac.in' required>
         <br>
         <label>Password:</label>
         <input type="password" name="password" placeholder='Password' required>
         <br>
+>>>>>>> 225c81f1bb0a75a6a198dac292d7f7b2cbd83ae1
         <button type="submit">Login</button>
     </form>
 
     <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
-</body>
+</div>
 
-
+<script>
+    function togglePwd(){
+        let p = document.getElementById("password");
+        p.type = p.type === "password" ? "text" : "password";
+    }
+</script>
 {% endblock %}
