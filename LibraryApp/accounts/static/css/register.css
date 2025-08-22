@@ -21,6 +21,7 @@
 }
 
 .register-card__logo {
+    border-radius: 20%;
     max-width: 70px;
     margin-bottom: 8px;
 }
