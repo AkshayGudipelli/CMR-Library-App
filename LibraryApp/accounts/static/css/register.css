@@ -1,0 +1,86 @@
+/* Page wrapper with background */
+.register-wrapper {
+    background: url('/media/images/login_background_2.png') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card */
+.register-card {
+    background-color: rgba(245, 236, 225, 0.95); /* beige */
+    backdrop-filter: blur(6px);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    width: 430px;
+    text-align: center;
+}
+
+.register-card__logo {
+    max-width: 70px;
+    margin-bottom: 8px;
+}
+
+.register-card__title {
+    margin: 8px 0 20px;
+    color: var(--primary-color, #001f54);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Form */
+.register-form {
+    text-align: left;
+}
+
+.register-form__label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+.register-form__input {
+    background-color: rgba(243, 239, 234, 0.95); /* beige */ 
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Button */
+.register-form__button {
+    width: 100%;
+    margin-top: 10px;
+    color: white;
+    background-color: #001f54;
+}
+
+/* Alerts for Django messages */
+.alert {
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error,
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

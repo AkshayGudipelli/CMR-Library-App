@@ -1,134 +1,54 @@
+{% extends "html/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LibraryLink - Register</title>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background-color: #f9f9f9;
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                overflow: hidden;
-            }
 
-<<<<<<< HEAD
-            .border-wrapper {
-                background: url("{% static 'books3.jpg' %}") no-repeat center center;
-                background-size: cover;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-=======
+{% block title %}Register{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
 {% block body %}
-<body>
-    <h2>Sign up</h2>
->>>>>>> 225c81f1bb0a75a6a198dac292d7f7b2cbd83ae1
+<div class="register-wrapper">
+    <div class="register-card">
+        <img class="register-card__logo" src="/media/images/cmr_logo.png" alt="CMR Logo">
+        <h2 class="register-card__title">Register to CMR Library</h2>
 
-            .container {
-                background-color: white;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-                width: 500px;
-                box-sizing: border-box;
-                text-align: center;
-            }
-
-            .logo {
-                max-width: 100px;
-                margin-bottom: 4px;
-            }
-
-            h2 {
-                margin-top: 4px;
-                margin-bottom: 15px;
-                color: #333;
-                font-size: 20px;
-            }
-
-            label {
-                display: block;
-                margin-bottom: 3px;
-                font-weight: bold;
-                color: black;
-                text-align: left;
-                font-size: 14px;
-            }
-
-            input {
-                width: 100%;
-                padding: 8px;
-                margin-bottom: 20px;
-                border-radius: 5px;
-                border: 1px solid #ccc;
-                font-size: 14px;
-                box-sizing: border-box;
-            }
-
-            button {
-                width: 100%;
-                padding: 10px;
-                border: none;
-                border-radius: 5px;
-                background-color: #4CAF50;
-                color: white;
-                font-size: 15px;
-                cursor: pointer;
-            }
-
-            button:hover {
-                background-color: #45a049;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="border-wrapper">
-            <div class="container">
-                <img src="{% static 'cmrlogo.png' %}" alt="CMR Logo" class="logo">
-                <h2>Welcome to LibraryLink</h2>
-
-<<<<<<< HEAD
-                <form method="POST">
-                    {% csrf_token %}
-                    <!-- If you are using Django forms -->
-                    {# {{ form.as_p }} #}
-=======
-        <p>
-            Re-Type Password:<br>
-            {{ form.password2 }}<br>
-            {{ form.password2.errors }}
-        </p>
->>>>>>> 225c81f1bb0a75a6a198dac292d7f7b2cbd83ae1
-
-                    <!-- Manual fields -->
-                    <label for="fname">First Name</label>
-                    <input id="fname" name="fname" type="text" placeholder="Enter your first name" required>
-
-                    <label for="lname">Last Name</label>
-                    <input id="lname" name="lname" type="text" placeholder="Enter your last name" required>
-
-                    <label for="email">College Mail ID</label>
-                    <input id="email" name="email" type="email" placeholder="Enter your email" required>
-
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="Enter your password" required>
-
-                    <label for="confirm_password">Confirm Password</label>
-                    <input id="confirm_password" name="confirm_password" type="password" placeholder="Confirm your password" required>
-
-                    <button type="submit">Register</button>
-                </form>
+        {# Flash messages (success / error) #}
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
             </div>
+            {% endfor %}
         </div>
-    </body>
-</html>
+        {% endif %}
+
+        <form method="POST" class="register-form">
+            {% csrf_token %}
+
+            <label class="register-form__label">First Name</label>
+            {{ form.first_name.errors }}
+            {{ form.first_name }}
+
+            <label class="register-form__label">Last Name</label>
+            {{ form.last_name.errors }}
+            {{ form.last_name }}
+
+            <label class="register-form__label">College Mail ID</label>
+            {{ form.email.errors }}
+            {{ form.email }}
+
+            <label class="register-form__label">Password</label>
+            {{ form.password1.errors }}
+            {{ form.password1 }}
+
+            <label class="register-form__label">Confirm Password</label>
+            {{ form.password2.errors }}
+            {{ form.password2 }}
+
+            <button type="submit" class="btn btn--primary register-form__button">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

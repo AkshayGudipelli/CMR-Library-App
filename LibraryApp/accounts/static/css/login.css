@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('/media/images/login_background_2.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Block */
+.login-card {
+    background-color: rgba(245, 235, 220, 0.9);
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Elements */
+.login-card__logo {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.login-card__title {
+    margin-bottom: 25px;
+    font-size: 20px;
+    color: #001f54;
+}
+
+.login-card__form {
+    margin-top: 10px;
+}
+
+.login-card__input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.login-card__input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.login-card__btn {
+    background-color: #001f54;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.login-card__btn:hover {
+    background-color: #00337f;
+}
+
+.login-card__register-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-card__register-text a {
+    color: #001f54;
+    text-decoration: none;
+}
+
+.login-card__register-text a:hover {
+    text-decoration: underline;
+}
+
+.login-card__error {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.login-card__toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 14px;
+    opacity: 0.6;
+}

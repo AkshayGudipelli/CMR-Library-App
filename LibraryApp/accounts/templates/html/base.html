@@ -1,9 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library App</title>
+    <title>{% block title %}My Site{% endblock %}</title>
+
+    <!-- global css (if any) -->
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+     
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     {% block body %}
