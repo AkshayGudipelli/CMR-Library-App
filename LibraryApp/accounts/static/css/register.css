@@ -1,87 +1,185 @@
-/* Page wrapper with background */
-.register-wrapper {
-    background: url('/media/images/login_background_2.png') no-repeat center center;
-    background-size: cover;
-    width: 100%;
+/* General body and container styles */
+body {
+    background: #eef2f6;
+    margin: 0;
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; */
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
-/* Card */
+/* The new main wrapper to center the entire layout */
+.main-container {
+    display: flex;
+    width: 900px;
+    max-width: 95%;
+    height: 600px;
+    max-height: 90vh;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* Left - Register */
+.left-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
 .register-card {
-    background-color: rgba(245, 236, 225, 0.95); /* beige */
-    backdrop-filter: blur(6px);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    width: 430px;
+    background: #fff;
+    width: 100%;
+    padding: 40px;
+}
+
+.register-card h2 {
     text-align: center;
-}
-
-.register-card__logo {
-    border-radius: 20%;
-    max-width: 70px;
-    margin-bottom: 8px;
-}
-
-.register-card__title {
-    margin: 8px 0 20px;
-    color: var(--primary-color, #001f54);
-    font-size: 22px;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 2rem;
     font-weight: 600;
 }
 
-/* Form */
-.register-form {
-    text-align: left;
+/* First + Last name inputs side by side */
+.name-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.name-row .register-form__input-group {
+    flex: 1;
+}
+
+/* Labels + Inputs */
+.register-form__input-group {
+    margin-bottom: 20px;
 }
 
 .register-form__label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #333;
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 0.9rem;
 }
 
 .register-form__input {
-    background-color: rgba(243, 239, 234, 0.95); /* beige */ 
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    box-sizing: border-box;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Button */
-.register-form__button {
+.register-form__input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Register button */
+.register-btn {
     width: 100%;
-    margin-top: 10px;
+    max-width: 250px;
+    padding: 15px;
+    margin: 25px auto 0;
+    border: none;
+    border-radius: 8px;
+    background: #003366;
     color: white;
-    background-color: #001f54;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: block;
 }
 
-/* Alerts for Django messages */
-.alert {
-    padding: 10px;
-    border-radius: 6px;
+.register-btn:hover {
+    background: #002244;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 51, 102, 0.3);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.login-link a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.login-link a:hover {
+    color: #0056b3;
+}
+
+/* Right side */
+.right-container {
+    flex: 1;
+    background: linear-gradient(135deg, #003366, #0055aa);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.right-container img {
+    width: 150px;
+    margin-bottom: 25px;
+}
+
+.right-container h3 {
+    color: white;
+    font-size: 1.8rem;
     margin-bottom: 15px;
-    font-size: 14px;
+    font-weight: 700;
 }
 
-.alert-success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+.right-container p {
+    font-size: 1rem;
+    max-width: 380px;
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
-.alert-error,
-.alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+.register-cmr {
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .left-container, .right-container {
+        padding: 30px;
+    }
+
+    .name-row {
+        flex-direction: column;
+        gap: 0;
+    }
 }

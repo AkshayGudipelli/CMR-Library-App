@@ -1,173 +1,54 @@
+{% extends "html/base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - CMR Library</title>
-    <style>
-      body {
-        font-family: Roboto, Arial;
-        background: #f4f4f9;
-        margin: 0;
-        height: 100vh;
-        display: flex;
-      }
 
-      /* Left - Register */
-      .left-container {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #f9f9f9;
-      }
+{% block title %}Register - CMR Library{% endblock %}
 
-      .register-card {
-        background: #fff;
-        width: 400px;
-        padding: 25px;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
 
-      .register-card h2 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      /* First + Last name inputs side by side */
-      .name-row {
-        display: flex;
-        gap: 30px;
-        margin-bottom: 15px;
-      }
-
-      .name-row .register-form__input {
-        flex: 1;
-      }
-
-      /* Labels + Inputs */
-      .register-form__label {
-        display: block;
-        text-align: left;
-        font-weight: bold;
-        margin: 10px 0 5px;
-      }
-
-      .register-form__input {
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        outline: none;
-      }
-
-      /* Register button */
-      .register-btn {
-        width: 100%;
-        padding: 12px;
-        margin-top: 20px;
-        border: none;
-        border-radius: 8px;
-        background: #0055aa;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-
-      .register-btn:hover {
-        background: #003d80;
-      }
-
-      .login-link {
-        text-align: center;
-        margin-top: 15px;
-        font-size: 14px;
-      }
-
-      .login-link a {
-        text-decoration: none;
-        color: #0055aa;
-        font-weight: bold;
-      }
-
-      /* Right side */
-      .right-container {
-        flex: 1;
-        background: linear-gradient(135deg, #003366, #0055aa);
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 40px;
-        text-align: center;
-      }
-
-      .right-container img {
-        width: 120px;
-        margin-bottom: 20px;
-      }
-
-      .right-container h3 {
-        font-size: 22px;
-        margin-bottom: 10px;
-      }
-
-      .right-container p {
-        font-size: 16px;
-        max-width: 350px;
-      }
-      .register-cmr {
-        border-radius: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Left Section -->
+{% block body %}
+<div class="main-container">
     <div class="left-container">
-      <div class="register-card">
-        <h2>Register</h2>
-        <form method="post">
-          {% csrf_token %}
-          
-          <!-- First + Last Name row -->
-          <div class="name-row">
-            <div>
-              <label class="register-form__label">First Name</label>
-              <input type="text" name="first_name" class="register-form__input" required>
-            </div>
-            <div>
-              <label class="register-form__label">Last Name</label>
-              <input type="text" name="last_name" class="register-form__input" required>
-            </div>
-          </div>
+        <div class="register-card">
+            <h2>Register</h2>
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="name-row">
+                    <div>
+                        <label class="register-form__label">First Name</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div>
+                        <label class="register-form__label">Last Name</label>
+                        {{ form.last_name }}
+                    </div>
+                </div>
 
-          <label class="register-form__label">College Mail ID</label>
-          <input type="email" name="email" class="register-form__input" required>
+                <label class="register-form__label">College Mail ID</label>
+                {{ form.email }}
 
-          <label class="register-form__label">Password</label>
-          <input type="password" name="password" class="register-form__input" required>
+                <label class="register-form__label">Password</label>
+                {{ form.password1 }}
 
-          <label class="register-form__label">Confirm Password</label>
-          <input type="password" name="confirm_password" class="register-form__input" required>
+                <label class="register-form__label">Confirm Password</label>
+                {{ form.password2 }}
 
-          <button type="submit" class="register-btn">Register</button>
+                <button type="submit" class="register-btn">Register</button>
 
-          <div class="login-link">
-            Already have an account? <a href="{% url 'login' %}">Log in</a>
-          </div>
-        </form>
-      </div>
+                <div class="login-link">
+                    Already have an account? <a href="{% url 'login' %}">Log in</a>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <!-- Right Section -->
     <div class="right-container">
-      <img src="/media/images/cmr-logo.png" class="register-cmr" alt="CMR Logo">
-      <h3>Welcome to CMREC Library</h3>
-      <p>"A reader lives a thousand lives before he dies. The man who never reads lives only one"</p>
+        <img src="/media/images/cmr-logo.png" class="register-cmr" alt="CMR Logo">
+        <h3>Welcome to CMREC Library</h3>
+        <p>"A reader lives a thousand lives before he dies. The man who never reads lives only one"</p>
     </div>
-  </body>
-</html>
+</div>
+{% endblock %}

@@ -9,7 +9,7 @@ class CollegeUserCreationForm(UserCreationForm):
         required=True,
         widget=forms.EmailInput(attrs={
             'class': 'register-form__input',
-            'placeholder': 'Enter your college email'
+            
         })
     )
 
@@ -18,7 +18,7 @@ class CollegeUserCreationForm(UserCreationForm):
         strip=False,
         widget=forms.PasswordInput(attrs={
             'class': 'register-form__input',
-            'placeholder': 'Enter your password'
+            
         }),
     )
 
@@ -26,7 +26,7 @@ class CollegeUserCreationForm(UserCreationForm):
         label="Confirm Password",
         widget=forms.PasswordInput(attrs={
             'class': 'register-form__input',
-            'placeholder': 'Confirm your password'
+            
         }),
         strip=False,
     )
@@ -37,11 +37,11 @@ class CollegeUserCreationForm(UserCreationForm):
         widgets = {
             'first_name': forms.TextInput(attrs={
                 'class': 'register-form__input',
-                'placeholder': 'Enter your first name'
+                
             }),
             'last_name': forms.TextInput(attrs={
                 'class': 'register-form__input',
-                'placeholder': 'Enter your last name'
+                
             }),
         }
 
